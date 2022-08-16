@@ -3,7 +3,10 @@
   <%= t.text_field :title %>
   <%= t.label :details %>
   <%= t.text_field :details %>
+
+  <%= t.label :completed, "This task is completed?" %>
+  <%= t.check_box :completed, checked: true %>
   <%= t.submit %>
 <% end %>
 
-<%= link_to "Back to the list", '.' %>
+<%= link_to "Back to the list", tasks_path %>
