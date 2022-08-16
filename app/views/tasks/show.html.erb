@@ -1,7 +1,11 @@
 <h2><%= @task.title %></h2>
 
 <p><%= @task.details %></p>
-<p><%= @task.completed %></p>
+<p><% if @task.completed == true %>
+          <%= "Done" %>
+ <p><% else %>
+    <%= "Not Done" %>
+<% end  %></p>
 
 
 <%= link_to "Delete",
@@ -9,6 +13,6 @@
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
 %>
 
-
+<%= link_to "Return", "." %>
 
 <%= link_to "Update", edit_task_path(@task.id) %>

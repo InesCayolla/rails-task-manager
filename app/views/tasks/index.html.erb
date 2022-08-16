@@ -1,8 +1,17 @@
 <h1>All Tasks</h1>
-<ul>
+<ol>
   <% @tasks.each do |task| %>
-    <li><%= link_to task.title, task_path(task.id) %></li>
-  <% end %>
-</ul>
 
-<%= link_to "Add a new task", '/tasks/new' %>
+        <p><% if task.completed == true %>
+          <i class="fa-solid fa-circle-check"></i> <%= link_to task.title, task_path(task.id) %>
+        <p><% else %>
+        <i class="fa-regular fa-circle-check"> </i> <%= link_to task.title, task_path(task.id) %>
+
+        </p>
+        <% end %>
+
+  <% end %>
+</ol>
+
+<center>
+<i class="fa-solid fa-plus"></i><%= link_to "Add a new task", '/tasks/new' %> </center>
